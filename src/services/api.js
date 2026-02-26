@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8000";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 // Guardamos el token en memoria (se pierde al recargar, lo manejamos abajo)
 let authToken = localStorage.getItem("token");

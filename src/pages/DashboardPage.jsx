@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getMyChannels, deleteChannel } from "../services/api";
 import { useAuth } from "../context/AuthContext";
+import { STORAGE_URL } from "../config";
 
 function DashboardPage() {
   const { user } = useAuth();
@@ -59,7 +60,7 @@ function DashboardPage() {
               <div className="w-12 h-12 rounded-full overflow-hidden bg-red-600 flex items-center justify-center text-white font-bold text-lg flex-shrink-0">
                 {channel.avatar ? (
                   <img
-                    src={`http://localhost:8000/storage/${channel.avatar}`}
+                    src={`${STORAGE_URL}/${channel.avatar}`}
                     alt={channel.name}
                     className="w-full h-full object-cover"
                   />

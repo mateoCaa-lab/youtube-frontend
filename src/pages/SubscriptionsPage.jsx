@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getFeed } from "../services/api";
+import { STORAGE_URL } from "../config";
 
 function SubscriptionsPage() {
   const navigate = useNavigate();
@@ -41,7 +42,7 @@ function SubscriptionsPage() {
             <div className="w-full aspect-video bg-zinc-800 rounded-xl overflow-hidden mb-3">
               {video.thumbnail_path ? (
                 <img
-                  src={`http://localhost:8000/storage/${video.thumbnail_path}`}
+                  src={`${STORAGE_URL}/${video.thumbnail_path}`}
                   alt={video.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition duration-200"
                 />

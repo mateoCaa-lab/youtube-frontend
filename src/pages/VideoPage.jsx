@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getVideo, toggleLike, addComment, deleteComment, toggleSubscription } from "../services/api";
 import { useAuth } from "../context/AuthContext";
+import { STORAGE_URL } from "../config";
 
 function VideoPage() {
   const { id } = useParams();
@@ -91,7 +92,7 @@ function VideoPage() {
       {/* ── Reproductor de video ── */}
       <div className="w-full aspect-video bg-black rounded-xl overflow-hidden mb-4">
         <video
-          src={`http://localhost:8000/storage/${video.video_path}`}
+          src={`${STORAGE_URL}/${video.video_path}`}
           controls
           className="w-full h-full"
         />

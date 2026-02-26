@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getChannel, toggleSubscription } from "../services/api";
 import { useAuth } from "../context/AuthContext";
+import { STORAGE_URL } from "../config";
 
 function ChannelPage() {
   const { id } = useParams();
@@ -54,7 +55,7 @@ function ChannelPage() {
       <div className="w-full h-32 bg-zinc-800 rounded-xl overflow-hidden mb-4">
         {channel.banner ? (
           <img
-            src={`http://localhost:8000/storage/${channel.banner}`}
+            src={`${STORAGE_URL}/${channel.banner}`}
             className="w-full h-full object-cover"
           />
         ) : (
@@ -68,7 +69,7 @@ function ChannelPage() {
           <div className="w-16 h-16 rounded-full overflow-hidden bg-red-600 flex items-center justify-center text-white text-2xl font-bold">
             {channel.avatar ? (
               <img
-                src={`http://localhost:8000/storage/${channel.avatar}`}
+                src={`${STORAGE_URL}/${channel.avatar}`}
                 alt={channel.name}
                 className="w-full h-full object-cover"
               />
@@ -118,7 +119,7 @@ function ChannelPage() {
               <div className="w-full aspect-video bg-zinc-800 rounded-xl overflow-hidden mb-3">
                 {video.thumbnail_path ? (
                   <img
-                    src={`http://localhost:8000/storage/${video.thumbnail_path}`}
+                    src={`${STORAGE_URL}/${video.thumbnail_path}`}
                     alt={video.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition duration-200"
                   />

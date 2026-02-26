@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { searchVideos } from "../services/api";
+import { STORAGE_URL } from "../config";
 
 function SearchPage() {
   const navigate = useNavigate();
@@ -73,7 +74,7 @@ function SearchPage() {
                 <div className="w-40 h-24 bg-zinc-800 rounded-lg overflow-hidden flex-shrink-0">
                   {video.thumbnail_path ? (
                     <img
-                      src={`http://localhost:8000/storage/${video.thumbnail_path}`}
+                      src={`${STORAGE_URL}/${video.thumbnail_path}`}
                       alt={video.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition"
                     />

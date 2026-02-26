@@ -5,6 +5,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getVideos } from "../services/api";
+import { STORAGE_URL } from "../config";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ function VideoCard({ video, onClick }) {
       <div className="w-full aspect-video bg-zinc-800 rounded-xl overflow-hidden mb-3">
         {video.thumbnail_path ? (
           <img
-            src={`http://localhost:8000/storage/${video.thumbnail_path}`}
+            src={`${STORAGE_URL}/${video.thumbnail_path}`}
             alt={video.title}
             className="w-full h-full object-cover group-hover:scale-105 transition duration-200"
           />
@@ -69,7 +70,7 @@ function VideoCard({ video, onClick }) {
         <div className="w-9 h-9 rounded-full overflow-hidden bg-red-600 flex items-center justify-center text-white text-sm font-bold flex-shrink-0">
           {video.channel?.avatar ? (
             <img
-              src={`http://localhost:8000/storage/${video.channel.avatar}`}
+              src={`${STORAGE_URL}/${video.channel.avatar}`}
               alt={video.channel.name}
               className="w-full h-full object-cover"
             />

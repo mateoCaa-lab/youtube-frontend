@@ -1,6 +1,7 @@
 // LoginPage.jsx
 // Esta es la página de inicio de sesión.
 // Si el usuario no está autenticado, App.jsx lo redirige aquí.
+import { API_URL } from "../config";
 
 function LoginPage() {
   return (
@@ -22,7 +23,7 @@ function LoginPage() {
           </p>
 
           
-          <a href="http://localhost:8000/auth/google"
+          <a href={`${API_URL}/auth/google`}
             className="flex items-center justify-center gap-3 w-full bg-white hover:bg-zinc-100 text-zinc-800 font-medium py-3 px-4 rounded-full transition"
           >
             {/* Ícono de Google */}
