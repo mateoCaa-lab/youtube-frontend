@@ -107,9 +107,6 @@ function VideoPage() {
           <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white font-bold">
             {video.channel?.name?.charAt(0).toUpperCase()}
           </div>
-          <div className="fechaCanalCreado">
-            {video.channel?.created_at}
-          </div>
           <div>
             <p className="text-white font-medium">{video.channel?.name}</p>
             <p className="text-zinc-400 text-sm">{subscribersCount} suscriptores</p>
